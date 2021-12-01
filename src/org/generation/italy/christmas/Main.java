@@ -21,6 +21,13 @@ public class Main {
 			System.out.print("Aggiungi elemento alla lista dei desideri: ");
 			String wish = scanner.nextLine();
 			wishlist.add(wish);
+			
+			// counter lista
+			if (wishlist.size() < 2) {
+				System.out.println("La tua lista contine " + wishlist.size() + " desiderio");
+			} else {
+				System.out.println("La tua lista contine " + wishlist.size() + " desideri");
+			}
 
 			System.out.print("Continuare? (s/n)");
 			String yesNo = scanner.nextLine();
@@ -34,10 +41,11 @@ public class Main {
 			}
 		}
 
-		// riordina
+		// riordina wishlist
 		Collections.sort(wishlist);
 
 		// print wishlist
+		System.out.println("Ecco la tua lista:");
 		for (String s : wishlist) {
 			System.out.println(s);
 		}
