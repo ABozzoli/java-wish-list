@@ -21,7 +21,7 @@ public class Main {
 			System.out.print("Aggiungi elemento alla lista dei desideri: ");
 			String wish = scanner.nextLine();
 			wishlist.add(wish);
-			
+
 			// counter lista
 			if (wishlist.size() < 2) {
 				System.out.println("La tua lista contine " + wishlist.size() + " desiderio");
@@ -29,16 +29,27 @@ public class Main {
 				System.out.println("La tua lista contine " + wishlist.size() + " desideri");
 			}
 
-			System.out.print("Continuare? (s/n)");
+			// scelta utente
+			System.out.print("Continuare? (s/n) ");
 			String yesNo = scanner.nextLine();
 
-			if (yesNo.equals("n")) {
-				continuare = false;
-			} else if (yesNo.equals("s")) {
-				continuare = true;
-			} else {
-				// ERRORE
+			// validatore
+			boolean valid = false;
+			while (!valid) {
+
+				if (yesNo.equals("n")) {
+					valid = true;
+					continuare = false;
+				} else if (yesNo.equals("s")) {
+					valid = true;
+					continuare = true;
+				} else {
+					System.out.print("Scelta non valida, rispondere con s/n ");
+					yesNo = scanner.nextLine();
+				}
+
 			}
+
 		}
 
 		// riordina wishlist
